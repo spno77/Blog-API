@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #3rd-party apps
     'rest_framework',
+    'rest_framework.authtoken',
 
     #Local
     'posts.apps.PostsConfig',
@@ -128,5 +129,10 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ],
 }
